@@ -1,6 +1,5 @@
 import jwt from 'jsonwebtoken'
 import User from '../models/user.js'
-import { json } from 'body-parser';
 
 export const authenToken = async ( req , res , next) =>{
     try {

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const itemSchema = new mongoose.Schema({
     title: {
@@ -13,7 +13,7 @@ const itemSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-        enum: ['person','electronics', 'clothing', 'documents', 'jewelry', 'other']
+        enum: ['person','animal' ,'electronics', 'clothing', 'documents', 'jewelry', 'other']
     },
     status: {
         type: String,
@@ -47,6 +47,4 @@ const itemSchema = new mongoose.Schema({
     }
 });
 
-const Item = mongoose.model('Item', itemSchema);
-
-module.exports = Item;
+export default mongoose.model('Item', itemSchema);
