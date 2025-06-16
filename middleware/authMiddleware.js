@@ -7,9 +7,9 @@ export const authenToken = async ( req , res , next) =>{
         if(!authorized && !authorized.startsWith('Bearer'))
             return res.status(401).json({error : "Thhere is a Something Went Wrong in the header."})
         const token = authorized.split(' ')[1]
-        const payload = jwt.verify(token,process.env.SECRET_KEY)
-
-        const user = await User.findById(payload.userId)
+        const payload = jwt.verify(token,process.env.JWT_SECRET)
+        
+        const user = await User.findById(payload.id)
         if(!user)
             return res.status(401).json({Error: 'User Not found'})
     

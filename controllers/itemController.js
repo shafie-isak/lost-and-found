@@ -85,7 +85,7 @@ export const deleteItem = async (req, res) => {
       return res.status(403).json({ message: 'Unauthorized' });
     }
 
-    await item.remove();
+    await item.deleteOne();
     res.json({ message: 'Item deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: 'Failed to delete item', error: error.message });
